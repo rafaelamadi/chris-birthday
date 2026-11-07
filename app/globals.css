@@ -1,14 +1,15 @@
 @import "tailwindcss";
+@source not "../animations";
 
-/* 1. Primitives */
+/* 1. Primitives (Base monochrome scale & absolutes) */
 @import "../shared/styles/colors.css";
 @import "../shared/styles/dimensions.css";
 @import "../shared/styles/effects.css";
 
-/* 2. Semantics (depends on Primitives) */
+/* 2. Semantics (Mapped roles, surfaces & routes) */
 @import "../shared/styles/semantics.css";
 
-/* 3. Base & Components (depends on Semantics) */
+/* 3. Base & Components (Consumes Semantics) */
 @import "../shared/styles/typography.css";
 @import "../shared/styles/button.css";
 @import "../shared/styles/input.css";
@@ -21,12 +22,15 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-special: var(--font-special);
+  --font-serif: var(--font-special);
   --font-mono: var(--font-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }

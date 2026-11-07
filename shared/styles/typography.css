@@ -1,28 +1,16 @@
 :root {
-  /* Font Families */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  /* ==========================================================================
+     Typography System: 3-Family Editorial System
+     - Anton: Monumental Headings & Architectural Statements
+     - Geist: Primary Body, UI, Letters & Navigation
+     - Instrument Serif: Special Places, Reflective Quotes & Signatures
+     ========================================================================== */
 
-  /* Font Sizes */
-  --text-xs: 0.75rem;
-  /* 12px */
-  --text-sm: 0.875rem;
-  /* 14px */
-  --text-base: 1rem;
-  /* 16px */
-  --text-lg: 1.125rem;
-  /* 18px */
-  --text-xl: 1.25rem;
-  /* 20px */
-  --text-2xl: 1.5rem;
-  /* 24px */
-  --text-3xl: 1.875rem;
-  /* 30px */
-  --text-4xl: 2.25rem;
-  /* 36px */
-  --text-5xl: 3rem;
-  /* 48px */
+  /* Font Families (Fallbacks + CSS variable bindings) */
+  --font-heading: var(--font-anton), 'Anton', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: var(--font-geist), 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-special: var(--font-instrument-serif), 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
   /* Font Weights */
   --weight-regular: 400;
@@ -31,89 +19,184 @@
   --weight-bold: 700;
 
   /* Line Heights */
-  --leading-none: 1;
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
+  --leading-dense: 0.95;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
+  --leading-relaxed: 1.68;
+  --leading-loose: 1.85;
+
+  /* Letter Spacing */
+  --tracking-tightest: -0.035em;
+  --tracking-tighter: -0.025em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-widest: 0.09em;
+
+  /* Modular & Architectural Scales */
+  --text-city-display: clamp(5.5rem, 12vw, 12.5rem);
+  --text-hero-display: clamp(4rem, 9.5vw, 9.25rem);
+  --text-birthday-display: clamp(3.5rem, 8vw, 8rem);
+  --text-editorial-statement: clamp(2.25rem, 5vw, 4.75rem);
+
+  /* Special Places (Instrument Serif) */
+  --text-special-xl: clamp(2.25rem, 4vw, 3.25rem);
+  --text-special-lg: clamp(1.75rem, 3vw, 2.5rem);
+  --text-special-md: clamp(1.25rem, 2vw, 1.75rem);
+
+  /* Content & Body */
+  --text-letter: 1.125rem;  /* 18px for contributor letters */
+  --text-story: 1rem;       /* 16px for story paragraphs */
+  --text-sm: 0.875rem;      /* 14px */
+  --text-meta: 0.75rem;     /* 12px for badges, dates & coordinates */
+  --text-micro: 0.6875rem;  /* 11px for fine credits */
 }
 
-body {
-  font-family: var(--font-sans);
-  color: var(--text-base);
-  line-height: var(--leading-normal);
-  -webkit-font-smoothing: antialiased;
+@layer base {
+  /* Base Body Typography */
+  body {
+    font-family: var(--font-body);
+    color: var(--text-base);
+    line-height: var(--leading-relaxed);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings Base */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-regular);
+    color: var(--text-primary);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+  }
+
+  /* Standard Paragraphs */
+  p {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-  font-weight: var(--weight-bold);
-  color: var(--text-base);
+/* ==========================================================================
+   Typography Utility Classes
+   ========================================================================== */
+
+/* Font Family Allocations */
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-regular);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-special {
+  font-family: var(--font-special);
+  font-style: italic;
+}
+
+.font-special-upright {
+  font-family: var(--font-special);
+  font-style: normal;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Display & Architectural Headings */
+.heading-city {
+  font-family: var(--font-heading);
+  font-size: var(--text-city-display);
+  line-height: var(--leading-dense);
+  letter-spacing: var(--tracking-tightest);
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.heading-hero {
+  font-family: var(--font-heading);
+  font-size: var(--text-hero-display);
+  line-height: var(--leading-dense);
+  letter-spacing: var(--tracking-tighter);
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.heading-birthday {
+  font-family: var(--font-heading);
+  font-size: var(--text-birthday-display);
+  line-height: var(--leading-dense);
+  letter-spacing: var(--tracking-tighter);
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.heading-editorial {
+  font-family: var(--font-heading);
+  font-size: var(--text-editorial-statement);
   line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--text-primary);
 }
 
-h1 {
-  font-size: var(--text-5xl);
+/* Special Moments & Pull Quotes (Instrument Serif) */
+.quote-special {
+  font-family: var(--font-special);
+  font-style: italic;
+  font-size: var(--text-special-lg);
+  line-height: var(--leading-snug);
+  color: var(--text-primary);
 }
 
-h2 {
-  font-size: var(--text-4xl);
-}
-
-h3 {
-  font-size: var(--text-3xl);
-}
-
-h4 {
-  font-size: var(--text-2xl);
-}
-
-h5 {
-  font-size: var(--text-xl);
-}
-
-h6 {
-  font-size: var(--text-lg);
-}
-
-p {
-  margin-bottom: var(--spacing-4);
+.quote-special-subtle {
+  font-family: var(--font-special);
+  font-style: italic;
+  font-size: var(--text-special-md);
+  line-height: var(--leading-snug);
   color: var(--text-secondary);
 }
 
-/* Utilities */
+.remembrance-text {
+  font-family: var(--font-special);
+  font-style: normal;
+  font-size: var(--text-special-xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
 
-/* Size Variants */
-.text-xs { font-size: var(--text-xs); line-height: var(--leading-normal); }
-.text-sm { font-size: var(--text-sm); line-height: var(--leading-normal); }
-.text-base { font-size: var(--text-base); line-height: var(--leading-normal); }
-.text-lg { font-size: var(--text-lg); line-height: var(--leading-snug); }
-.text-xl { font-size: var(--text-xl); line-height: var(--leading-snug); }
-.text-2xl { font-size: var(--text-2xl); line-height: var(--leading-tight); }
-.text-3xl { font-size: var(--text-3xl); line-height: var(--leading-tight); }
-.text-4xl { font-size: var(--text-4xl); line-height: var(--leading-tight); }
-.text-5xl { font-size: var(--text-5xl); line-height: var(--leading-tight); }
+/* Narrative Body Sizes */
+.story-paragraph {
+  font-family: var(--font-body);
+  font-size: var(--text-story);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
 
-/* Weight Variants */
-.font-regular { font-weight: var(--weight-regular); }
-.font-medium { font-weight: var(--weight-medium); }
-.font-semibold { font-weight: var(--weight-semibold); }
-.font-bold { font-weight: var(--weight-bold); }
+.letter-paragraph {
+  font-family: var(--font-body);
+  font-size: var(--text-letter);
+  line-height: 1.75;
+  color: var(--text-primary);
+}
 
-/* Intent Variants (Colors) */
-.text-default { color: var(--text-base); }
-.text-primary { color: var(--text-primary); }
-.text-secondary { color: var(--text-secondary); }
-.text-muted { color: var(--text-tertiary); }
-.text-brand { color: var(--text-brand); }
-.text-error { color: var(--text-error); }
-.text-success { color: var(--text-success); }
-.text-warning { color: var(--text-warning); }
-.text-info { color: var(--text-info); }
-.text-inverse { color: var(--text-inverse); }
+/* Stop Badges & Metadata */
+.text-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.badge-stop {
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--weight-semibold);
+}

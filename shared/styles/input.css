@@ -22,11 +22,11 @@
 
     padding: var(--spacing-2) var(--spacing-3);
 
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: var(--text-sm);
     color: var(--text-base);
 
-    background-color: var(--color-white);
+    background-color: var(--bg-surface);
     background-clip: padding-box;
 
     border: 1px solid var(--border-default);
@@ -46,7 +46,7 @@
     &:focus {
         outline: none;
         border-color: var(--border-focus);
-        box-shadow: 0 0 0 3px var(--bg-primary-subtle);
+        box-shadow: 0 0 0 2px var(--color-grey-300);
     }
 
     &:disabled {
@@ -64,19 +64,10 @@
     }
 
     &.input-error {
-        border-color: var(--border-error);
+        border-color: var(--border-strong);
 
         &:focus {
-            box-shadow: 0 0 0 3px var(--bg-danger-subtle);
-        }
-    }
-
-    &.input-success {
-        border-color: var(--color-success-500);
-        background-color: var(--color-success-50);
-
-        &:focus {
-            box-shadow: 0 0 0 3px var(--color-success-100);
+            box-shadow: 0 0 0 2px var(--color-grey-500);
         }
     }
 }
@@ -93,6 +84,7 @@
 
 .label {
     display: block;
+    font-family: var(--font-body);
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
     color: var(--text-secondary);

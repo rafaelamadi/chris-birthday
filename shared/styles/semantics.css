@@ -1,62 +1,91 @@
 :root {
-  /* Backgrounds */
-  --bg-page: var(--color-neutral-50);
+  /* ==========================================================================
+     Semantic Tokens: Monochrome Theme
+     Layer 2: Intentional Aliases Mapped to Primitives
+     ========================================================================== */
+
+  /* Global Document & Canvas Surfaces */
+  --bg-page: var(--color-grey-50);
+  --bg-canvas: var(--color-grey-50);
+  --bg-canvas-alt: var(--color-paper-light);
+
+  /* Card & Spread Surfaces */
   --bg-surface: var(--color-white);
-  --bg-surface-hover: var(--color-neutral-50);
-  --bg-surface-active: var(--color-neutral-100);
   --bg-surface-elevated: var(--color-white);
+  --bg-surface-subtle: var(--color-grey-100);
+  --bg-surface-muted: var(--color-grey-150);
+  --bg-surface-hover: var(--color-grey-100);
+  --bg-surface-active: var(--color-grey-200);
 
-  --bg-primary: var(--color-primary-500);
-  --bg-primary-hover: var(--color-primary-600);
-  --bg-primary-subtle: var(--color-primary-50);
+  /* Stop 15 & Darkroom Spreads (Quiet Remembrance) */
+  --bg-surface-dark: var(--color-charcoal-deep);
+  --bg-surface-dark-pure: var(--color-charcoal-pure);
+  --bg-surface-dark-card: var(--color-charcoal-medium);
 
-  --bg-secondary: var(--color-secondary-500);
-  --bg-secondary-hover: var(--color-secondary-600);
-  --bg-secondary-subtle: var(--color-secondary-50);
+  /* Contributor Letters Surface (Clean Paper Correspondence) */
+  --bg-surface-letter: var(--color-white);
 
-  --bg-danger: var(--color-error-500);
-  --bg-danger-hover: var(--color-error-600);
-  --bg-danger-subtle: var(--color-error-50);
+  /* Typography / Text Colors */
+  --text-base: var(--color-grey-950);
+  --text-primary: var(--color-grey-950);
+  --text-secondary: var(--color-grey-700);
+  --text-tertiary: var(--color-grey-500);
+  --text-muted: var(--color-grey-500);
+  --text-subtle: var(--color-grey-400);
+  --text-disabled: var(--color-grey-300);
 
-  /* Action Colors */
-  --color-action-primary: var(--color-sun-500);
-  --color-action-primary-hover: var(--color-sun-600);
-  --color-action-secondary: var(--color-navy-700);
-  --color-action-secondary-hover: var(--color-navy-800);
-  --color-action-tertiary: var(--color-ocean-600);
-  --color-action-tertiary-hover: var(--color-ocean-700);
-  --color-action-disabled: var(--color-neutral-200);
+  /* Inverted Text (for Darkroom / Stop 15 / Dark Spreads) */
+  --text-inverse: var(--color-white);
+  --text-inverse-secondary: var(--color-grey-300);
+  --text-inverse-muted: var(--color-grey-400);
+  --text-inverse-subtle: var(--color-grey-600);
 
+  /* Borders & Dividers */
+  --border-default: var(--color-grey-200);
+  --border-subtle: var(--color-grey-100);
+  --border-strong: var(--color-grey-400);
+  --border-dark: var(--color-grey-800);
+  --border-dark-subtle: var(--color-charcoal-subtle);
+  --border-focus: var(--color-grey-950);
+
+  /* Route & Story Journey Tokens */
+  --route-stroke: var(--color-grey-950);
+  --route-stroke-inverted: var(--color-white);
+  --route-stroke-quiet: var(--color-grey-500);
+  --route-halo: var(--color-overlay-white-85);
+  
+  --badge-bg: var(--color-grey-950);
+  --badge-text: var(--color-white);
+  --badge-border: var(--color-grey-950);
+
+  --badge-inverted-bg: var(--color-white);
+  --badge-inverted-text: var(--color-grey-950);
+  --badge-inverted-border: var(--color-white);
+
+  /* Interactive Elements / Buttons */
+  --color-action-primary: var(--color-grey-950);
+  --color-action-primary-hover: var(--color-grey-800);
+  --color-action-primary-text: var(--color-white);
+
+  --color-action-secondary: var(--color-white);
+  --color-action-secondary-border: var(--color-grey-300);
+  --color-action-secondary-hover: var(--color-grey-100);
+  --color-action-secondary-text: var(--color-grey-950);
+
+  --color-action-ghost-hover: var(--color-grey-100);
+  --color-action-disabled: var(--color-grey-200);
+  --color-action-disabled-text: var(--color-grey-400);
+
+  /* Overlays */
+  --overlay-backdrop: var(--color-overlay-black-75);
+  --overlay-glass-light: var(--color-overlay-white-85);
+  --overlay-glass-dark: var(--color-overlay-black-75);
+
+  /* System Mappings */
   --foreground: var(--text-base);
   --background: var(--bg-page);
-
-  /* Text Colors */
-  --text-base: var(--color-neutral-900);
-  --text-primary: var(--color-primary-600);
-  --text-secondary: var(--color-neutral-600);
-  --text-tertiary: var(--color-neutral-400);
-  --text-disabled: var(--color-neutral-300);
-
-  --text-brand: var(--color-primary-600);
-  --text-inverse: var(--color-white);
-
-  --text-success: var(--color-success-700);
-  --text-warning: var(--color-warning-700);
-  --text-error: var(--color-error-700);
-  --text-info: var(--color-info-700);
-
-  /* Borders */
-  --border-default: var(--color-neutral-200);
-  --border-subtle: var(--color-neutral-100);
-  --border-strong: var(--color-neutral-300);
-  --border-focus: var(--color-primary-300);
-
-  --border-error: var(--color-error-300);
-  --border-success: var(--color-success-300);
-
-  /* Component Specific Semantics (mapped generally) */
-  --link-color: var(--color-primary-600);
-  --link-hover: var(--color-primary-700);
+  --link-color: var(--text-primary);
+  --link-hover: var(--text-secondary);
 
   --shadow-card: var(--shadow-sm);
   --shadow-popover: var(--shadow-lg);
@@ -66,24 +95,47 @@
   --radius-input: var(--radius-md);
 }
 
+/* Dark Mode Adaptation (for dark preference or dark sections) */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark Mode Overrides */
-    --bg-page: var(--color-neutral-950);
-    --bg-surface: var(--color-neutral-900);
-    --bg-surface-hover: var(--color-neutral-800);
-    --bg-surface-active: var(--color-neutral-700);
+    --bg-page: var(--color-charcoal-pure);
+    --bg-canvas: var(--color-charcoal-pure);
+    --bg-canvas-alt: var(--color-charcoal-deep);
 
-    --text-base: var(--color-neutral-50);
-    --text-primary: var(--color-primary-300);
-    --text-secondary: var(--color-neutral-400);
-    --text-tertiary: var(--color-neutral-500);
+    --bg-surface: var(--color-charcoal-deep);
+    --bg-surface-elevated: var(--color-charcoal-medium);
+    --bg-surface-subtle: var(--color-charcoal-subtle);
+    --bg-surface-muted: var(--color-grey-850);
+    --bg-surface-hover: var(--color-grey-800);
+    --bg-surface-active: var(--color-grey-700);
 
-    --border-default: var(--color-neutral-800);
-    --border-subtle: var(--color-neutral-900);
-    --border-strong: var(--color-neutral-700);
+    --text-base: var(--color-grey-100);
+    --text-primary: var(--color-white);
+    --text-secondary: var(--color-grey-300);
+    --text-tertiary: var(--color-grey-400);
+    --text-muted: var(--color-grey-500);
+    --text-subtle: var(--color-grey-600);
+    --text-disabled: var(--color-grey-700);
 
-    --bg-primary-subtle: var(--color-primary-950);
-    --bg-danger-subtle: var(--color-error-950);
+    --border-default: var(--color-grey-800);
+    --border-subtle: var(--color-grey-850);
+    --border-strong: var(--color-grey-600);
+    --border-focus: var(--color-white);
+
+    --route-stroke: var(--color-white);
+    --route-halo: var(--color-overlay-black-75);
+
+    --badge-bg: var(--color-white);
+    --badge-text: var(--color-grey-950);
+    --badge-border: var(--color-white);
+
+    --color-action-primary: var(--color-white);
+    --color-action-primary-hover: var(--color-grey-200);
+    --color-action-primary-text: var(--color-grey-950);
+
+    --color-action-secondary: var(--color-charcoal-medium);
+    --color-action-secondary-border: var(--color-grey-700);
+    --color-action-secondary-hover: var(--color-charcoal-subtle);
+    --color-action-secondary-text: var(--color-white);
   }
 }
