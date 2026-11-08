@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from 'react';
 
 const images = {
-  hands: 'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop',
-  lagos: 'https://images.unsplash.com/photo-1577975882846-431adc8c2009?q=80&w=1200&auto=format&fit=crop',
-  football: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop',
-  classroom: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1200&auto=format&fit=crop',
+  hands: '/chris-pictures/mum-dinner-original.jpg',
+  lagos: '/chris-pictures/overview-of-lagos.jpg',
+  football: '/chris-pictures/lagos-traffic.jpg',
+  classroom: '/chris-pictures/fstc.jpg',
   dubai: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop',
+  lagosTraffic: '/chris-pictures/tubers.jpg',
 };
 
 type Photo = {
@@ -20,27 +21,27 @@ const photos: Photo[] = [
   {
     className: 'photo photo-birth',
     src: images.hands,
-    alt: 'A diverse group of people joining hands',
+    alt: 'A full house — the Ilozulu family together',
   },
   {
     className: 'photo photo-lagos-main',
     src: images.lagos,
-    alt: 'A black-and-white view across Lagos buildings',
+    alt: 'Overview of Lagos city',
   },
   {
     className: 'photo photo-lagos-detail',
-    src: images.lagos,
-    alt: 'A closer black-and-white view of Lagos',
+    src: images.lagosTraffic,
+    alt: 'How many tubers of yam — market vegetables',
   },
   {
     className: 'photo photo-football',
     src: images.football,
-    alt: 'A football resting on green grass in warm light',
+    alt: 'Lagos mornings — traffic and city life',
   },
   {
     className: 'photo photo-classroom',
     src: images.classroom,
-    alt: 'Students sitting together in a classroom',
+    alt: 'School days — FSTC classroom and friends',
   },
   {
     className: 'photo photo-dubai',
@@ -282,13 +283,23 @@ export function LagosChapter() {
 
         .closing {
           position: absolute;
-          top: calc(1203 * var(--unit));
-          left: calc(1119 * var(--unit));
-          width: calc(477 * var(--unit));
+          bottom: calc(88 * var(--unit));
+          right: calc(96 * var(--unit));
+          width: calc(700 * var(--unit));
           font-family: var(--font-special), serif;
           font-style: italic;
-          font-size: calc(23 * var(--unit));
-          line-height: 1.35;
+          font-size: calc(52 * var(--unit));
+          line-height: 1.25;
+          color: #151515;
+          display: flex;
+          align-items: flex-end;
+          gap: calc(24 * var(--unit));
+        }
+
+        .closing-arrow {
+          flex-shrink: 0;
+          width: calc(140 * var(--unit));
+          height: calc(140 * var(--unit));
           color: #151515;
         }
 
@@ -441,8 +452,17 @@ export function LagosChapter() {
           .closing {
             grid-row: 15;
             margin: 6px 0 84px;
-            font-size: 22px;
-            line-height: 1.35;
+            font-size: 28px;
+            line-height: 1.3;
+            display: flex;
+            align-items: flex-end;
+            gap: 14px;
+          }
+
+          .closing-arrow {
+            flex-shrink: 0;
+            width: 72px;
+            height: 72px;
           }
         }
       `}</style>
@@ -461,7 +481,7 @@ export function LagosChapter() {
         </header>
 
         <section className="memory memory-01">
-          <h2>02 — A full house</h2>
+          <h2>A full house</h2>
           <p>
             Chris is the second of six. Growing up in the middle of a crowd
             teaches you to share, to stand your ground, and to look out for
@@ -470,7 +490,7 @@ export function LagosChapter() {
         </section>
 
         <section className="memory memory-03">
-          <h2>03 — Stop one: Lagos</h2>
+          <h2>Stop one: Lagos</h2>
           <p>
             Nursery, primary, secondary. Chris&apos;s whole childhood happened
             here, and the boy who left was nothing like the boy who arrived.
@@ -478,7 +498,7 @@ export function LagosChapter() {
         </section>
 
         <section className="memory memory-04">
-          <h2>04 — Lagos mornings</h2>
+          <h2>Lagos mornings</h2>
           <p>
             Uniforms, traffic noise before sunrise, and football outside whenever
             the day allowed. Simple days, long afternoons.
@@ -486,7 +506,7 @@ export function LagosChapter() {
         </section>
 
         <section className="memory memory-05">
-          <h2>05 — School days</h2>
+          <h2>School days</h2>
           <p>
             Classrooms, friends who knew him before anyone else did, and
             break-time snacks that were never enough.
@@ -494,7 +514,7 @@ export function LagosChapter() {
         </section>
 
         <section className="memory memory-06">
-          <h2>06 — How many tubers?</h2>
+          <h2>How many tubers?</h2>
           <p>
             His dad loved yam. Chris says that growing up, if you asked his dad
             for something like excursion money, he&apos;d look at you and ask,
@@ -504,7 +524,7 @@ export function LagosChapter() {
         </section>
 
         <section className="memory memory-07">
-          <h2>07 — Dubai</h2>
+          <h2>Dubai</h2>
           <p>
             For all the yam maths, the whole family still made it to Dubai on
             vacation.
@@ -520,7 +540,33 @@ export function LagosChapter() {
         ))}
 
         <p className="closing">
-          The world was waiting. But first, the road led east.
+          <span>The world was waiting. But first, the road led east.</span>
+          {/* Decorative curved arrow pointing right toward the next panel */}
+          <svg
+            className="closing-arrow"
+            viewBox="0 0 100 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            {/* Tail starts left-center, sweeps up and curves right — flows from text */}
+            <path
+              d="M5 48 C20 48, 55 8, 92 22"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Arrowhead at tip pointing right */}
+            <path
+              d="M83 13 L93 22 L82 30"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+          </svg>
         </p>
 
         {selectedPhoto && (
